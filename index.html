@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShareSoc Sponsors Scheme — UK Individual Shareholders Society</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --orange: #EB6144;
+    --dark-blue: #252C39;
+    --teal: #26BCA9;
+    --light-blue: #8DB9D4;
+    --navy: #355075;
+    --pale-blue: #DBFAFC;
+    --off-white: #F6F8FA;
+    --warm-white: #FAFBFC;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    color: var(--dark-blue);
+    background: var(--warm-white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* ─── NAVIGATION ─── */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.25rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav.scrolled {
+    background: rgba(37, 44, 57, 0.97);
+    backdrop-filter: blur(12px);
+    padding: 0.75rem 3rem;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-img {
+    height: 32px;
+    width: auto;
+  }
+
+  .footer-logo-img {
+    height: 28px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.25rem;
+    align-items: center;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: #fff; }
+
+  .nav-cta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: #fff !important;
+    background: var(--orange);
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .nav-cta:hover {
+    background: #d4543a;
+    transform: translateY(-1px);
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--dark-blue);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 75% 20%, rgba(53, 80, 117, 0.5) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 20% 80%, rgba(53, 80, 117, 0.3) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(37, 44, 57, 1) 0%, rgba(37, 44, 57, 0.95) 100%);
+  }
+
+  /* Decorative arc motif — inspired by the brand's curved line */
+  .hero-arc {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 55%;
+    height: 120%;
+    border: 1px solid rgba(141, 185, 212, 0.08);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-arc-2 {
+    position: absolute;
+    top: -20%;
+    right: -15%;
+    width: 65%;
+    height: 140%;
+    border: 1px solid rgba(141, 185, 212, 0.04);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Large faint brandmark watermark */
+  .hero-watermark {
+    position: absolute;
+    right: -4%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44vw;
+    height: 44vw;
+    max-width: 600px;
+    max-height: 600px;
+    opacity: 0.035;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    padding: 0 3rem;
+    padding-left: max(3rem, 8vw);
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+
+  .hero-badge::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.75rem, 5.5vw, 4.25rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+
+  .hero h1 span {
+    display: block;
+    background: linear-gradient(135deg, var(--light-blue), var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.1875rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.65;
+    font-weight: 400;
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--orange);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-primary:hover {
+    background: #d4543a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(235, 97, 68, 0.25);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.3s;
+  }
+
+  .btn-secondary:hover { color: #fff; }
+
+  .btn-arrow {
+    display: inline-block;
+    transition: transform 0.3s;
+  }
+
+  .btn-primary:hover .btn-arrow,
+  .btn-secondary:hover .btn-arrow {
+    transform: translateX(3px);
+  }
+
+  /* Scroll indicator */
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.2s forwards;
+  }
+
+  .hero-scroll span {
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    font-weight: 500;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 1; transform: scaleY(1); }
+    50% { opacity: 0.4; transform: scaleY(0.6); transform-origin: top; }
+  }
+
+  /* Orange accent bar at the bottom of the hero */
+  .hero-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--orange);
+  }
+
+  /* ─── SECTION COMMON ─── */
+  .section {
+    padding: 7rem 3rem;
+    padding-left: max(3rem, 8vw);
+    padding-right: max(3rem, 8vw);
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 32px;
+    height: 2px;
+    background: var(--orange);
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    color: var(--dark-blue);
+  }
+
+  .section-body {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #4A5568;
+    max-width: 640px;
+  }
+
+  /* ─── ABOUT ─── */
+  .about {
+    background: var(--warm-white);
+    position: relative;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .stat-card {
+    background: #fff;
+    border: 1px solid rgba(37, 44, 57, 0.06);
+    border-radius: 8px;
+    padding: 2rem 1.75rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(37, 44, 57, 0.08);
+  }
+
+  .stat-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-number .accent { color: var(--teal); }
+
+  .stat-desc {
+    font-size: 0.8125rem;
+    color: #6B7B8D;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .about-quote {
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.55;
+    color: var(--dark-blue);
+    margin-top: 2rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--orange);
+  }
+
+  /* ─── SUCCESSES ─── */
+  .successes {
+    background: var(--dark-blue);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .successes .section-label { color: var(--teal); }
+  .successes .section-label::before { background: var(--teal); }
+  .successes .section-title { color: #fff; }
+  .successes .section-body { color: rgba(255,255,255,0.6); }
+
+  .successes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+    margin-top: 3.5rem;
+  }
+
+  .success-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 2rem 1.75rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+
+  .success-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--teal);
+    border-radius: 0 0 4px 0;
+    transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .success-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.1);
+    transform: translateY(-3px);
+  }
+
+  .success-card:hover::before { height: 100%; }
+
+  .success-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(38, 188, 169, 0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .success-icon svg {
+    width: 18px;
+    height: 18px;
+    color: var(--teal);
+  }
+
+  .success-card p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.75);
+    font-weight: 400;
+  }
+
+  /* Decorative arcs in dark sections */
+  .successes .deco-arc {
+    position: absolute;
+    border: 1px solid rgba(255,255,255,0.03);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .successes .deco-arc-1 {
+    width: 500px;
+    height: 500px;
+    top: -200px;
+    right: -100px;
+  }
+
+  .successes .deco-arc-2 {
+    width: 350px;
+    height: 350px;
+    bottom: -100px;
+    left: -80px;
+  }
+
+  /* ─── CONSULTATIONS ─── */
+  .consultations {
+    background: var(--off-white);
+    position: relative;
+  }
+
+  .consult-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .consult-highlight {
+    background: var(--dark-blue);
+    border-radius: 12px;
+    padding: 3rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .consult-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--orange);
+  }
+
+  .consult-big-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--light-blue), var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.75rem;
+  }
+
+  .consult-big-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .consult-big-desc {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .consult-challenge {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .consult-challenge-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.75rem;
+  }
+
+  .consult-challenge p {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .consult-bodies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin-top: 1.5rem;
+  }
+
+  .consult-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.06);
+    padding: 0.4rem 0.875rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* ─── HELP / CTA ─── */
+  .help {
+    background: var(--warm-white);
+    position: relative;
+  }
+
+  .help-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .help-body-text {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #4A5568;
+    margin-bottom: 1.5rem;
+  }
+
+  .enables-list {
+    list-style: none;
+    margin-top: 2rem;
+  }
+
+  .enables-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(37, 44, 57, 0.06);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--dark-blue);
+    font-weight: 500;
+  }
+
+  .enables-list li:last-child { border-bottom: none; }
+
+  .enables-check {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: rgba(38, 188, 169, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.125rem;
+  }
+
+  .enables-check svg {
+    width: 12px;
+    height: 12px;
+    color: var(--teal);
+  }
+
+  /* ─── TIERS ─── */
+  .tiers {
+    background: var(--dark-blue);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tiers .section-label { color: var(--teal); }
+  .tiers .section-label::before { background: var(--teal); }
+  .tiers .section-title { color: #fff; }
+  .tiers .section-body { color: rgba(255,255,255,0.6); }
+
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3.5rem;
+    max-width: 900px;
+  }
+
+  .tier-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 2.75rem 2.25rem;
+    position: relative;
+    transition: all 0.35s;
+  }
+
+  .tier-card.featured {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(235, 97, 68, 0.3);
+  }
+
+  .tier-card.featured::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 2rem;
+    right: 2rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--orange), transparent);
+  }
+
+  .tier-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.15);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  }
+
+  .tier-badge {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.375rem 0.875rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .tier-card.featured .tier-badge {
+    background: rgba(235, 97, 68, 0.15);
+    color: var(--orange);
+  }
+
+  .tier-card:not(.featured) .tier-badge {
+    background: rgba(38, 188, 169, 0.12);
+    color: var(--teal);
+  }
+
+  .tier-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+
+  .tier-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2rem;
+  }
+
+  .tier-price strong {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .tier-price span {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  .tier-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .tier-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+  }
+
+  .tier-features li svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--teal);
+  }
+
+  .tier-features li.excluded {
+    color: rgba(255,255,255,0.25);
+  }
+
+  .tier-features li.excluded svg {
+    color: rgba(255,255,255,0.15);
+  }
+
+  .tier-btn {
+    display: block;
+    width: 100%;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .tier-card.featured .tier-btn {
+    background: var(--orange);
+    color: #fff;
+  }
+
+  .tier-card.featured .tier-btn:hover {
+    background: #d4543a;
+    box-shadow: 0 8px 24px rgba(235, 97, 68, 0.25);
+  }
+
+  .tier-card:not(.featured) .tier-btn {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .tier-card:not(.featured) .tier-btn:hover {
+    background: rgba(255,255,255,0.14);
+  }
+
+  .tiers-note {
+    margin-top: 2.5rem;
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+    max-width: 560px;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: #1C222D;
+    padding: 4rem 3rem 0;
+    padding-left: max(3rem, 8vw);
+    padding-right: max(3rem, 8vw);
+    position: relative;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-brand p {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+    max-width: 340px;
+    margin-top: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .footer-col h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-col a {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-col a:hover { color: rgba(255,255,255,0.8); }
+
+  .footer-bottom {
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* Signature orange bar */
+  .footer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--orange);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+  .reveal-delay-6 { transition-delay: 0.6s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .about-grid,
+    .consult-content,
+    .help-layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .tiers-grid {
+      max-width: 100%;
+    }
+
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      padding: 4.5rem 1.5rem;
+    }
+
+    .hero-content {
+      padding: 0 1.5rem;
+    }
+
+    .nav { padding: 1rem 1.5rem; }
+    .nav.scrolled { padding: 0.75rem 1.5rem; }
+
+    .successes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tiers-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .footer-links {
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .hero-watermark { display: none; }
+
+    .about-stats {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .about-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .consult-highlight {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <img src="logo-white.svg" alt="ShareSoc — UK Individual Shareholders Society" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#successes">Impact</a></li>
+    <li><a href="#consultations">Advocacy</a></li>
+    <li><a href="#tiers">Sponsor Tiers</a></li>
+    <li><a href="#tiers" class="nav-cta">Become a Sponsor</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="hero">
+  <div class="hero-arc"></div>
+  <div class="hero-arc-2"></div>
+
+  <!-- Large watermark brandmark -->
+  <svg class="hero-watermark" viewBox="0 0 186 186" fill="none">
+    <circle cx="93" cy="93" r="92" stroke="#fff" stroke-width="0.5"/>
+    <path d="M142.5 47.88H64.81C53.36 47.88 44.08 57.17 44.08 68.62C44.08 79.79 53.14 88.85 64.31 88.85H141.86C142.22 88.85 142.5 88.57 142.5 88.22V47.88Z" fill="#fff"/>
+    <path d="M44.08 96.22H121.77C133.22 96.22 142.5 105.5 142.5 116.95C142.5 128.12 133.44 137.18 122.27 137.18H44.71C44.36 137.18 44.08 136.9 44.08 136.55V96.22Z" fill="#fff"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-badge">Sponsors Scheme</div>
+    <h1>
+      Championing<br>Individual<br>
+      <span>Investors</span>
+    </h1>
+    <p class="hero-sub">
+      ShareSoc is the only not-for-profit organisation that steps in to support
+      individual investors harmed by rule breakers, poor governance or
+      ineffective regulation. We need your help.
+    </p>
+    <div class="hero-actions">
+      <a href="#tiers" class="btn-primary">
+        Become a Sponsor
+        <span class="btn-arrow">&rarr;</span>
+      </a>
+      <a href="#about" class="btn-secondary">
+        Learn More
+        <span class="btn-arrow">&darr;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+
+  <div class="hero-accent"></div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section class="section about" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label reveal">Who We Are</div>
+      <h2 class="section-title reveal reveal-delay-1">The voice of individual<br>investors in the UK</h2>
+      <p class="section-body reveal reveal-delay-2">
+        ShareSoc is unique, as the only not-for-profit organisation that steps
+        in to support individual investors harmed by rule breakers, poor
+        governance or ineffective regulation.
+      </p>
+      <p class="section-body reveal reveal-delay-3" style="margin-top: 1rem;">
+        From small beginnings in 2011, ShareSoc now has more than 15,000 members
+        and followers and continues to grow its reach with investors, the media
+        and decision-makers each year.
+      </p>
+      <div class="about-quote reveal reveal-delay-4">
+        We speak to companies, regulators and government on behalf of
+        individual investors.
+      </div>
+    </div>
+    <div class="about-stats reveal reveal-delay-2">
+      <div class="stat-card">
+        <div class="stat-number">15<span class="accent">,</span>000<span class="accent">+</span></div>
+        <div class="stat-desc">Members and followers across the UK</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">33</div>
+        <div class="stat-desc">Detailed submissions to public bodies in 5 years</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2011</div>
+        <div class="stat-desc">Founded by experienced individual investors</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="font-size: 1.75rem;">Not-for-<br>profit</div>
+        <div class="stat-desc">Run by investors, for investors</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CAMPAIGN SUCCESSES ─── -->
+<section class="section successes" id="successes">
+  <div class="deco-arc deco-arc-1"></div>
+  <div class="deco-arc deco-arc-2"></div>
+
+  <div class="section-label reveal">Our Impact</div>
+  <h2 class="section-title reveal reveal-delay-1">Campaign successes</h2>
+  <p class="section-body reveal reveal-delay-2">A track record of holding companies, regulators and government to account on behalf of individual investors.</p>
+
+  <div class="successes-grid">
+    <div class="success-card reveal reveal-delay-1">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <p>Appointed to the government's key <strong>Dematerialisation Market Action Taskforce (DEMAT)</strong>, as the sole representative of individual investors.</p>
+    </div>
+
+    <div class="success-card reveal reveal-delay-2">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <p>Protecting <strong>thousands of individual clients</strong> from the significant costs of administration after the financial failure of their brokers.</p>
+    </div>
+
+    <div class="success-card reveal reveal-delay-3">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <p>Campaigning for <strong>investor compensation</strong> where bad actors broke the rules.</p>
+    </div>
+
+    <div class="success-card reveal reveal-delay-4">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <p>Pressing the <strong>FCA into acting</strong> in the Woodford debacle.</p>
+    </div>
+
+    <div class="success-card reveal reveal-delay-5">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <p>Persuading <strong>NatWest</strong> (then RBS) to engage effectively with its retail investors.</p>
+    </div>
+
+    <div class="success-card reveal reveal-delay-5">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <p>Pressuring <strong>M&amp;S to drop</strong> its policy of online-only AGMs.</p>
+    </div>
+
+    <div class="success-card reveal reveal-delay-6">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+      </div>
+      <p>Forcing multiple <strong>venture capital trusts (VCT)</strong> to improve governance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONSULTATIONS ─── -->
+<section class="section consultations" id="consultations">
+  <div class="consult-content">
+    <div>
+      <div class="section-label reveal">Advocacy &amp; Policy</div>
+      <h2 class="section-title reveal reveal-delay-1">Speaking for investors<br>where it matters</h2>
+      <p class="section-body reveal reveal-delay-2">
+        ShareSoc responds to consultations from Treasury, Parliamentary Select
+        Committees, the FCA, the FRC and other public bodies on behalf of
+        individual investors across a broad array of subjects &mdash; from audit
+        quality and consumer duty to fund cost disclosures and listing rules.
+      </p>
+      <p class="section-body reveal reveal-delay-3" style="margin-top: 1rem;">
+        Our work improves UK corporate governance and stewardship, giving more
+        individuals the confidence to invest in the UK stock market. Ultimately,
+        this is a benefit to us all.
+      </p>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="consult-highlight">
+        <div class="consult-big-num">33</div>
+        <div class="consult-big-label">Detailed Submissions</div>
+        <div class="consult-big-desc">
+          Lengthy, detailed responses and submissions to various public bodies
+          over the past five years, covering audit quality, consumer duty,
+          primary markets, fund cost disclosures, listing rules and more.
+        </div>
+
+        <div class="consult-bodies">
+          <span class="consult-tag">HM Treasury</span>
+          <span class="consult-tag">FCA</span>
+          <span class="consult-tag">FRC</span>
+          <span class="consult-tag">Select Committees</span>
+        </div>
+
+        <div class="consult-challenge">
+          <div class="consult-challenge-label">Current Priority</div>
+          <p>
+            Ensuring the government and financial services industry implement
+            the recommendations of the Digitisation Taskforce to eliminate paper
+            share certificates &mdash; whilst preserving the rights of certificate
+            holders and enhancing the rights of intermediated investors.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW YOU CAN HELP ─── -->
+<section class="section help" id="help">
+  <div class="help-layout">
+    <div>
+      <div class="section-label reveal">How You Can Help</div>
+      <h2 class="section-title reveal reveal-delay-1">Your support<br>magnifies our influence</h2>
+      <p class="help-body-text reveal reveal-delay-2">
+        No other organisation does more to protect the interests of individual
+        investors in the UK, but we are constrained by lack of resource from
+        being as effective as we should and could be.
+      </p>
+      <p class="help-body-text reveal reveal-delay-3">
+        We rely heavily on a small number of volunteer directors and members.
+        To boost our resources and deliver on our ambitions, we need
+        philanthropic support from individuals who understand the importance
+        of ShareSoc's work and wish to see it succeed.
+      </p>
+      <p class="help-body-text reveal reveal-delay-4">
+        The ShareSoc Sponsors Scheme provides the opportunity for our most
+        committed supporters to provide regular donations that support our
+        work, boost our effectiveness and magnify our influence.
+      </p>
+    </div>
+    <div>
+      <h3 class="reveal" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--dark-blue);">What improved funding enables</h3>
+      <p class="reveal reveal-delay-1" style="font-size: 0.9375rem; color: #6B7B8D; margin-bottom: 0.5rem;">More predictable funding will give us the confidence to invest in resources that enable us to:</p>
+      <ul class="enables-list">
+        <li class="reveal reveal-delay-1">
+          <span class="enables-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Investigate more cases of potential wrongdoing
+        </li>
+        <li class="reveal reveal-delay-2">
+          <span class="enables-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Run more campaigns against bad actors
+        </li>
+        <li class="reveal reveal-delay-3">
+          <span class="enables-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Communicate better with investors who have been harmed
+        </li>
+        <li class="reveal reveal-delay-4">
+          <span class="enables-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Improve media visibility and influence
+        </li>
+        <li class="reveal reveal-delay-5">
+          <span class="enables-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Increase the number of submissions to public bodies
+        </li>
+        <li class="reveal reveal-delay-6">
+          <span class="enables-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Lobby more effectively for improvements to legislation and regulation
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SPONSOR TIERS ─── -->
+<section class="section tiers" id="tiers">
+  <div class="section-label reveal">Sponsors Scheme</div>
+  <h2 class="section-title reveal reveal-delay-1">Choose your level<br>of commitment</h2>
+  <p class="section-body reveal reveal-delay-2">Two tiers of support, each with meaningful recognition and engagement opportunities.</p>
+
+  <div class="tiers-grid">
+    <!-- PATRON -->
+    <div class="tier-card featured reveal reveal-delay-3">
+      <span class="tier-badge">Recommended</span>
+      <div class="tier-name">Patron</div>
+      <div class="tier-price"><strong>&pound;5,000</strong> <span>/ year</span></div>
+      <ul class="tier-features">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Advisory Board Membership
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Annual Lunch/Dinner
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Recognition on website &amp; annual report
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          General investing advice on request
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Annual Sponsors' Update
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Informer Magazine
+        </li>
+      </ul>
+      <a href="#" class="tier-btn">Become a Patron</a>
+    </div>
+
+    <!-- BENEFACTOR -->
+    <div class="tier-card reveal reveal-delay-4">
+      <span class="tier-badge">Supporter</span>
+      <div class="tier-name">Benefactor</div>
+      <div class="tier-price"><strong>&pound;500</strong> <span>/ year</span></div>
+      <ul class="tier-features">
+        <li class="excluded">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Advisory Board Membership
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Annual Lunch/Dinner
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Recognition on website &amp; annual report
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          General investing advice on request
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Annual Sponsors' Update
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Informer Magazine
+        </li>
+      </ul>
+      <a href="#" class="tier-btn">Become a Benefactor</a>
+    </div>
+  </div>
+
+  <p class="tiers-note reveal reveal-delay-5">
+    Donation levels are suggested minima. We encourage a regular annual
+    commitment but are very happy to accept one-off donations if preferred.
+    Option to remain anonymous is available. ShareSoc is not authorised to
+    give individual financial advice.
+  </p>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="margin-bottom: 0.5rem;">
+        <img src="logo-white.svg" alt="ShareSoc — UK Individual Shareholders Society" class="footer-logo-img">
+      </a>
+      <p>
+        A not-for-profit membership organisation run by individual investors
+        for individual investors. We aim to improve your investment experience
+        and to represent your interests.
+      </p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Organisation</h4>
+        <ul>
+          <li><a href="#">About ShareSoc</a></li>
+          <li><a href="#">Our Campaigns</a></li>
+          <li><a href="#">Informer Magazine</a></li>
+          <li><a href="#">SIGnet Network</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get Involved</h4>
+        <ul>
+          <li><a href="#">Become a Member</a></li>
+          <li><a href="#tiers">Sponsors Scheme</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 ShareSoc &mdash; UK Individual Shareholders Society. All rights reserved.</p>
+  </div>
+  <div class="footer-bar"></div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Intersection Observer for scroll reveals
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
