@@ -1042,20 +1042,6 @@
 </head>
 <body>
 
-<!-- ─── NAVIGATION ─── -->
-<nav class="nav" id="nav">
-  <a href="#" class="nav-logo">
-    <img src="logo-white.svg" alt="ShareSoc — UK Individual Shareholders Society" class="nav-logo-img">
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#successes">Impact</a></li>
-    <li><a href="#consultations">Advocacy</a></li>
-    <li><a href="#tiers">Sponsor Tiers</a></li>
-    <li><a href="#tiers" class="nav-cta">Become a Sponsor</a></li>
-  </ul>
-</nav>
-
 <!-- ─── HERO ─── -->
 <section class="hero" id="hero">
   <div class="hero-arc"></div>
@@ -1391,52 +1377,7 @@
   </p>
 </section>
 
-<!-- ─── FOOTER ─── -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="#" class="nav-logo" style="margin-bottom: 0.5rem;">
-        <img src="logo-white.svg" alt="ShareSoc — UK Individual Shareholders Society" class="footer-logo-img">
-      </a>
-      <p>
-        A not-for-profit membership organisation run by individual investors
-        for individual investors. We aim to improve your investment experience
-        and to represent your interests.
-      </p>
-    </div>
-    <div class="footer-links">
-      <div class="footer-col">
-        <h4>Organisation</h4>
-        <ul>
-          <li><a href="#">About ShareSoc</a></li>
-          <li><a href="#">Our Campaigns</a></li>
-          <li><a href="#">Informer Magazine</a></li>
-          <li><a href="#">SIGnet Network</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Get Involved</h4>
-        <ul>
-          <li><a href="#">Become a Member</a></li>
-          <li><a href="#tiers">Sponsors Scheme</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 ShareSoc &mdash; UK Individual Shareholders Society. All rights reserved.</p>
-  </div>
-  <div class="footer-bar"></div>
-</footer>
-
 <script>
-  // Nav scroll effect
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
   // Intersection Observer for scroll reveals
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
